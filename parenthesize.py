@@ -25,6 +25,8 @@ def lookup_chain(i: int, j: int):
             q = lookup_chain(i, k) + lookup_chain(k+1, j) + p[i-1]*p[k]*p[j]
             if q < M[i][j]:
                 M[i][j] = q
+
+                # Procedure in lecture does not mention updating S matrix here, but this is where it belongs.
                 S[i][j] = k
     return M[i][j]
 
